@@ -29,3 +29,6 @@ The program currently supports the following languages:
 * en-US
 
 Please feel free to add more languages/countries into ```_cv.info``` object, found at the top of ```cv-banner.js```, please use their [ISO Language Code](http://www.lingoes.net/en/translator/langcode.htm) as the key.
+
+## Contributions
+Any contributions are welcome! Whether you are a coder, bug-fixer, tester, translator, grammar-corrector, please [raise an issue](https://github.com/TheCoolBlackCat/coronavirus-banner/issues).
