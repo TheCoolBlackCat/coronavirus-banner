@@ -13,8 +13,7 @@ _cv = {
     },
 
 
-
-    html: document.getElementsByTagName("html")[0],
+    body: document.getElementsByTagName("body")[0],
 
     display: function(code) {
         var i  = this.info[code];
@@ -34,18 +33,19 @@ _cv = {
         div.id = "cv-banner";
 
         this.style();
-        this.html.appendChild(div)
+        this.body.appendChild(div)
     },
 
     style: function() {
         var s = document.createElement("style");
         s.type = "text/css";
         s.innerText = "\
-            html {margin-top: 115px;} \
-            #cv-banner {background: #000; color:#FFF; position:fixed; top:0; width:100%; padding:1.5rem; font-family:Arial,sans-serif}\
+            body {margin-left:0;} \
+            #cv-banner {background:#000; color:#FFF; position:fixed; top:0; width:100%; padding:1.5rem; font-family:Arial,sans-serif} \
+            #cv-banner a {color: firebrick;} \
         ";
-        this.html.appendChild(s);
+        this.body.appendChild(s);
     }
 };
 
-_cv.display("en-gb");
+// _cv.display("en-gb");
