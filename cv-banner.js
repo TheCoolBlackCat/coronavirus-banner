@@ -17,7 +17,11 @@ _cv = {
 
     getInfo: function(lang) {
         lang = {
-            "en": "en-GB"
+            "de": "de-DE",
+            "en": "en-GB",
+            "es": "es-ES",
+            "pt": "pt-PT",
+            "zh": "zh-CN"
         }[lang] || lang;
 
         var lookup = this.info[lang];
