@@ -1,11 +1,11 @@
 _cv = {
     info: {
-        "en-gb": {
+        "en-GB": {
             title:"There is an ongoing outbreak of COVID-19",
             url: "https://www.nhs.uk/conditions/coronavirus-covid-19",
             description: "Learn more about how you can protect yourself and others"
         },
-        "en-us": {
+        "en-US": {
             title:"There is an ongoing outbreak of COVID-19",
             url: "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
             description: "Learn more about how you can protect yourself and others"
@@ -14,6 +14,19 @@ _cv = {
 
     body: document.getElementsByTagName("body")[0],
     id: "cv-banner",
+
+    getInfo: function(lang) {
+        lang = {
+            "en": "en-GB"
+        }[lang] || lang;
+
+        var lookup = this.info[lang];
+        if (!lookup) {
+            this.log("Language unavailable, defaulting to en-GB", true);
+            lookup = this.info["en-GB"];
+        }
+        return lookup;
+    },
 
     checkCookie: function() {
         return document.cookie && document.cookie.indexOf("cvBannerCookie") != -1;
@@ -33,10 +46,10 @@ _cv = {
         this.setCookie();
     },
 
-    display: function(code) {
+    display: function(lang) {
         if (this.checkCookie()) return; // If cookie exists, don't draw
 
-        var i  = this.info[code];
+        var i  = this.getInfo(lang);
     
         var div = document.createElement("div"), 
             h1 = document.createElement("h1"),
@@ -73,6 +86,11 @@ _cv = {
             #cv-banner i:hover {color: firebrick;} \
         ";
         this.body.appendChild(s);
+    },
+
+    log: function(msg, e=false) {
+        if (e) console.warn("CV: "+msg);
+        else console.log("CV: "+msg);
     }
 };
 

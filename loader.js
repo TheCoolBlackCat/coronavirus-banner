@@ -12,4 +12,4 @@ _cvLoader = {
     }
 }
 
-_cvLoader.load("en-gb");
+_cvLoader.load("en");
